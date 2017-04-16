@@ -1,7 +1,7 @@
 package br.com.gfsoft.smartgondula.model;
 
 public class Usuario {
-	private int matricula;
+	private long matricula;
 	private String nome;
 	private String senha;
 	
@@ -9,11 +9,11 @@ public class Usuario {
 	/**
 	 * Metodos Getters e Setters
 	 */
-	public int getMatricula() {
+	public long getMatricula() {
 		return matricula;
 	}
 	
-	public void setMatricula(int matricula) {
+	public void setMatricula(long matricula) {
 		this.matricula = matricula;
 	}
 	

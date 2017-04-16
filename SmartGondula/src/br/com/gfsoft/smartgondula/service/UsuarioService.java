@@ -8,7 +8,7 @@ import br.com.gfsoft.smartgondula.persistence.PersistenceUsuario;
 
 public class UsuarioService  extends Service{
 	
-private IPersistenceUsuario persistencia;
+	private IPersistenceUsuario persistencia;
 	
 	public UsuarioService(){
 		
@@ -28,7 +28,7 @@ private IPersistenceUsuario persistencia;
 		return persistencia.update(usuario);
 	}
 	
-	public Usuario buscar(int matricula) {
+	public Usuario buscar(long matricula) {
 		return persistencia.selectUsuario(matricula);
 	}
 	
