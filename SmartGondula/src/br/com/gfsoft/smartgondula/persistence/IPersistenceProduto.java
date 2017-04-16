@@ -1,5 +1,15 @@
 package br.com.gfsoft.smartgondula.persistence;
 
-public interface IPersistenceProduto {
+import java.util.Set;
 
+import br.com.gfsoft.smartgondula.model.Produto;
+
+public interface IPersistenceProduto {
+	
+	public boolean insert(Produto produto);
+	public boolean delete(Produto produto);
+	public boolean update(Produto produto);
+	public Produto selectProduto(int codigo);
+	public Set<Produto> selectProdutos();
+	
 }
