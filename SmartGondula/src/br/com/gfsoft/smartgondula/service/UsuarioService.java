@@ -28,8 +28,8 @@ public class UsuarioService  extends Service{
 		return persistencia.update(usuario);
 	}
 	
-	public Usuario buscar(long matricula) {
-		return persistencia.selectUsuario(matricula);
+	public Usuario buscar(String nome) {
+		return persistencia.selectUsuario(nome);
 	}
 	
 	public Set<Usuario> listar(){

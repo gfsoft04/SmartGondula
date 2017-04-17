@@ -9,7 +9,7 @@ public interface IPersistenceProduto {
 	public boolean insert(Produto produto);
 	public boolean delete(Produto produto);
 	public boolean update(Produto produto);
-	public Produto selectProduto(int codigo);
+	public Produto selectProduto(String descricao);
 	public Set<Produto> selectProdutos();
 	
 }

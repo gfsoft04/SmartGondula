@@ -35,8 +35,8 @@ public class SmartGondula {
 		return usuarioService.atualizar(usuario);
 	}
 	
-	public Usuario buscarUsuario(long matricula){
-		return usuarioService.buscar(matricula);
+	public Usuario buscarUsuario(String nome){
+		return usuarioService.buscar(nome);
 	}
 	
 	public Set<Usuario> listarUsuarios(){
@@ -57,8 +57,8 @@ public class SmartGondula {
 		return produtoService.atualizar(produto);
 	}
 	
-	public Produto buscarProduto(int codigo){
-		return produtoService.buscar(codigo);
+	public Produto buscarProduto(String descricao){
+		return produtoService.buscar(descricao);
 	}
 	
 	public Set<Produto> listarProdutos(){
@@ -71,15 +71,15 @@ public class SmartGondula {
 		return lcdService.cadastrar(lcd);
 	}
 	
-	public boolean deletarUsuario(Lcd lcd){
+	public boolean deletarLcd(Lcd lcd){
 		return lcdService.deletar(lcd);
 	}
 	
-	public boolean atualizarUsuario(Lcd lcd){
+	public boolean atualizarLcd(Lcd lcd){
 		return lcdService.atualizar(lcd);
 	}
 	
-	public Lcd buscarUsuario(int codigo){
+	public Lcd buscarLcd(int codigo){
 		return lcdService.buscar(codigo);
 	}
 	

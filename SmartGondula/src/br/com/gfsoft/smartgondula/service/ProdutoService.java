@@ -28,8 +28,8 @@ public class ProdutoService extends Service{
 		return persistencia.update(produto);
 	}
 	
-	public Produto buscar(int codigo) {
-		return persistencia.selectProduto(codigo);
+	public Produto buscar(String descricao) {
+		return persistencia.selectProduto(descricao);
 	}
 	
 	public Set<Produto> listar(){

@@ -9,7 +9,7 @@ public interface IPersistenceUsuario {
 	public boolean insert(Usuario usuario);
 	public boolean delete(Usuario usuario);
 	public boolean update(Usuario usuario);
-	public Usuario selectUsuario(long matricula);
+	public Usuario selectUsuario(String nome);
 	public Set<Usuario> selectUsuarios();
 	
 }

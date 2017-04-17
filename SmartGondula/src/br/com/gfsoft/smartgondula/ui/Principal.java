@@ -3,6 +3,7 @@ package br.com.gfsoft.smartgondula.ui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.beans.PropertyVetoException;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
@@ -16,7 +17,18 @@ import javax.swing.border.SoftBevelBorder;
 
 public class Principal extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5431461428230621869L;
 	private JDesktopPane desktopPane;
+	public static CadUsuario USUARIO;
+	public static ConsultaUsuario CONSULTAUSUARIO;
+	public static CadProduto PRODUTO;
+	public static ConsultaProduto CONSULTAPRODUTO;
+	public static CadLcd LCD;
+	public static ConsultaLcd CONSULTALCD;
+	
 
 	/**
 	 * Launch the application.
@@ -80,6 +92,46 @@ public class Principal extends JFrame {
 		panelInicial.setBounds(10, 11, 1342, 644);
 		desktopPane.add(panelInicial);
 		panelInicial.setLayout(null);
-	}
+	
+	
+	
+		/**
+		 * Instanciando todas as telas e deixando invisiveis
+		 */
+		USUARIO = new CadUsuario();
+		PRODUTO = new CadProduto();
+		LCD = new CadLcd();
+		CONSULTAUSUARIO = new ConsultaUsuario();
+		CONSULTAPRODUTO = new ConsultaProduto();
+		CONSULTALCD = new ConsultaLcd();
+		
+		desktopPane.add(USUARIO);
+		desktopPane.add(PRODUTO);
+		desktopPane.add(LCD);
+		desktopPane.add(CONSULTAUSUARIO);
+		desktopPane.add(CONSULTAPRODUTO);
+		desktopPane.add(CONSULTALCD);
+		
+		try {
+			USUARIO.setMaximum(true);
+			PRODUTO.setMaximum(true);
+			LCD.setMaximum(true);
+			CONSULTAUSUARIO.setMaximum(true);
+			CONSULTAPRODUTO.setMaximum(true);
+			CONSULTALCD.setMaximum(true);
+		} catch (PropertyVetoException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		USUARIO.setVisible(false);
+		PRODUTO.setVisible(false);
+		LCD.setVisible(false);
+		CONSULTAUSUARIO.setVisible(false);
+		CONSULTAPRODUTO.setVisible(false);
+		CONSULTALCD.setVisible(false);
+		// =======================================================
 
+	}
+	
 }
