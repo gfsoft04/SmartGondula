@@ -25,7 +25,7 @@ public class PersistenceUsuario implements IPersistenceUsuario {
 	}
 
 	@Override
-	public Usuario selectUsuario(long matricula) {
+	public Usuario selectUsuario(String nome) {
 		// TODO Auto-generated method stub
 		return null;
 	}

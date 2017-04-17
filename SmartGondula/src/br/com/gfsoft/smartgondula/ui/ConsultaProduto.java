@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -94,8 +93,6 @@ public class ConsultaProduto extends JInternalFrame {
 						produto = smartGondula.buscarProduto(descricao);
 						
 						Principal.PRODUTO.preencheCampos(produto);
-						Principal.PRODUTO.setEditable(false);
-						Principal.PRODUTO.alternaBotoes(true);
 						Principal.PRODUTO.setVisible(true);
 						Principal.PRODUTO.setTitle("Editar");
 //					} catch (UsuarioNaoEncontradoException ex) {

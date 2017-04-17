@@ -7,6 +7,11 @@ import javax.swing.JInternalFrame;
 public class ConsultaLcd extends JInternalFrame {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3586729931570034214L;
+
+	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {

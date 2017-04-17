@@ -20,7 +20,6 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
 import br.com.gfsoft.smartgondula.controller.SmartGondula;
-import br.com.gfsoft.smartgondula.model.Produto;
 import br.com.gfsoft.smartgondula.model.TabelaConsulta;
 import br.com.gfsoft.smartgondula.model.Usuario;
 
@@ -94,8 +93,6 @@ public class ConsultaUsuario extends JInternalFrame {
 						usuario = smartGondula.buscarUsuario(nome);
 						
 						Principal.USUARIO.preencheCampos(usuario);
-						Principal.USUARIO.setEditable(false);
-						Principal.USUARIO.alternaBotoes(true);
 						Principal.USUARIO.setVisible(true);
 						Principal.USUARIO.setTitle("Editar");
 //					} catch (UsuarioNaoEncontradoException ex) {

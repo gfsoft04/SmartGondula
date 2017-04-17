@@ -16,6 +16,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
+import br.com.gfsoft.smartgondula.model.Produto;
+
 public class CadProduto extends JInternalFrame {
 	/**
 	 * 
@@ -120,7 +122,17 @@ public class CadProduto extends JInternalFrame {
 			
 			}
 		});
-		
-
 	}
+	
+	
+	/**
+	 * Metodo que recebe um objeto e preenche os campos
+	 */
+	public void preencheCampos(Produto produto){
+			
+		txtDescricao.setText(produto.getDescricao());
+		txtCodigo.setText(produto.getCodigo()+"");
+		
+	}
+	
 }

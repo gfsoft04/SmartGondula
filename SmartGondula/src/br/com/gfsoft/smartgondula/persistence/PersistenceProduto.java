@@ -25,7 +25,7 @@ public class PersistenceProduto implements IPersistenceProduto {
 	}
 
 	@Override
-	public Produto selectProduto(int codigo) {
+	public Produto selectProduto(String descricao) {
 		// TODO Auto-generated method stub
 		return null;
 	}

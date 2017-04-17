@@ -7,6 +7,11 @@ import javax.swing.JInternalFrame;
 public class CadLcd extends JInternalFrame {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7620690799007594615L;
+
+	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {

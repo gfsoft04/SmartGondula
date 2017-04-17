@@ -11,11 +11,13 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
-import javax.swing.JPasswordField;
+
+import br.com.gfsoft.smartgondula.model.Usuario;
 
 public class CadUsuario extends JInternalFrame {
 
@@ -121,6 +123,17 @@ public class CadUsuario extends JInternalFrame {
 			
 			}
 		});
-
+		
 	}
+
+	/**
+	 * Metodo que recebe um objeto e preenche os campos
+	 */
+	public void preencheCampos(Usuario usuario){
+			
+		txtMatricula.setText(usuario.getMatricula()+"");
+		txtNome.setText(usuario.getNome());
+		
+	}
+
 }
