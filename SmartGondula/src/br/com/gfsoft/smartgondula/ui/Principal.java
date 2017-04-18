@@ -3,10 +3,15 @@ package br.com.gfsoft.smartgondula.ui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
@@ -14,11 +19,6 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.SoftBevelBorder;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Principal extends JFrame {
 	
@@ -87,23 +87,23 @@ public class Principal extends JFrame {
 		JMenu mnNewMenu = new JMenu("Arquivo");
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmCadUsuario = new JMenuItem("Cadastrar de Usu\u00E1rio");
-		mntmCadUsuario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//USUARIO.alternaBotoes(false);
-				//USUARIO.setEditable(true);
-				USUARIO.setVisible(true);
-				USUARIO.setTitle("Cadastro de Usuário");
-				desktopPane.moveToFront(USUARIO);
-				
-			}
-		});
-		mnNewMenu.add(mntmCadUsuario);
+//		JMenuItem mntmCadUsuario = new JMenuItem("Cadastrar de Usu\u00E1rio");
+//		mntmCadUsuario.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				//USUARIO.alternaBotoes(false);
+//				USUARIO.setVisible(true);
+//				USUARIO.setTitle("Cadastro de Usuário");
+//				desktopPane.moveToFront(USUARIO);
+//				
+//			}
+//		});
+//		mnNewMenu.add(mntmCadUsuario);
 		
 		JMenuItem mntmCadProduto = new JMenuItem("Cadastro de Produto");
 		mntmCadProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PRODUTO.setVisible(true);
+				PRODUTO.alternaBotoes(false);
 				PRODUTO.setTitle("Cadastro de Produto");
 				desktopPane.moveToFront(PRODUTO);
 			}
@@ -114,6 +114,7 @@ public class Principal extends JFrame {
 		mntmCadLcd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LCD.setVisible(true);
+				//LCD.alternaBotoes(false);
 				LCD.setTitle("Cadastro de LCD");
 				desktopPane.moveToFront(LCD);
 			}
@@ -123,15 +124,15 @@ public class Principal extends JFrame {
 		JMenu mnNewMenu_1 = new JMenu("Consulta");
 		menuBar.add(mnNewMenu_1);
 		
-		JMenuItem mntmConsultaUsuario = new JMenuItem("Usu\u00E1rio");
-		mntmConsultaUsuario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				CONSULTAUSUARIO.setVisible(true);
-				CONSULTAUSUARIO.setTitle("Cadastro de Usuário");
-				desktopPane.moveToFront(CONSULTAUSUARIO);
-			}
-		});
-		mnNewMenu_1.add(mntmConsultaUsuario);
+//		JMenuItem mntmConsultaUsuario = new JMenuItem("Usu\u00E1rio");
+//		mntmConsultaUsuario.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				CONSULTAUSUARIO.setVisible(true);
+//				CONSULTAUSUARIO.setTitle("Cadastro de Usuário");
+//				desktopPane.moveToFront(CONSULTAUSUARIO);
+//			}
+//		});
+//		mnNewMenu_1.add(mntmConsultaUsuario);
 		
 		JMenuItem mntmConsultaProduto = new JMenuItem("Produto");
 		mntmConsultaProduto.addActionListener(new ActionListener() {

@@ -93,6 +93,7 @@ public class ConsultaProduto extends JInternalFrame {
 						
 						Principal.PRODUTO.preencheCampos(produto);
 						Principal.PRODUTO.setVisible(true);
+						Principal.PRODUTO.alternaBotoes(true);
 						Principal.PRODUTO.setTitle("Editar");
 //					} catch (UsuarioNaoEncontradoException ex) {
 //						// Excecao para usuario nao encontrado
