@@ -20,7 +20,7 @@ public class PersistenceUsuario implements IPersistenceUsuario {
 	@Override
 	public boolean insert(Usuario usuario) {
 		
-		String sql = "INSERT INTO tb_usuario(matricula, nome, senha) "
+		String sql = "INSERT INTO usuario(matricula, nome, senha) "
 				+ "VALUES('"+ usuario.getMatricula() +"',"
 						+ "'"+ usuario.getNome() +"',"
 						+ usuario.getSenha() +");";
@@ -57,7 +57,7 @@ public class PersistenceUsuario implements IPersistenceUsuario {
 		
 		String sql;
 		
-		sql = "DELETE FROM tb_usuario WHERE matricula = "+usuario.getMatricula()+";";
+		sql = "DELETE FROM usuario WHERE matricula = "+usuario.getMatricula()+";";
 		
 		try {
 			con.getConnection().createStatement().executeUpdate(sql);
@@ -73,7 +73,7 @@ public class PersistenceUsuario implements IPersistenceUsuario {
 	@Override
 	public boolean update(Usuario usuario) {
 		
-		String sql = "UPDATE tb_usuario SET nome = '"+usuario.getNome()+"',"
+		String sql = "UPDATE usuario SET nome = '"+usuario.getNome()+"',"
 				+ " senha = '"+usuario.getSenha()+"' "
 																				
 				+ " WHERE matricula = "+usuario.getMatricula()+";";
@@ -108,7 +108,7 @@ public class PersistenceUsuario implements IPersistenceUsuario {
 	public Usuario selectUsuario(String nome) {
 		
 		Usuario usuario = new Usuario();
-		String sql = "SELECT * FROM tb_usuario WHERE nome='" + nome + "';";
+		String sql = "SELECT * FROM usuario WHERE nome='" + nome + "';";
 		
 		try {
 			stmt = (Statement) con.getConnection().prepareStatement(sql);
@@ -153,7 +153,7 @@ public class PersistenceUsuario implements IPersistenceUsuario {
 		
 		try {
 			stmt = (Statement) con.getConnection().createStatement();
-			String sql = "SELECT * FROM tb_usuario;";
+			String sql = "SELECT * FROM usuario;";
 			rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {

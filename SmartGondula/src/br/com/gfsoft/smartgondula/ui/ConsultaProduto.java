@@ -109,7 +109,6 @@ public class ConsultaProduto extends JInternalFrame {
 		btnFiltrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String descricao = txtDescricao.getText();
-				
 				preencherTabelaFiltro(descricao);
 			}
 		});

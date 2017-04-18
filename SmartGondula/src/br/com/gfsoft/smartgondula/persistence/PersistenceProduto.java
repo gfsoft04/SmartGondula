@@ -19,7 +19,7 @@ public class PersistenceProduto implements IPersistenceProduto {
 
 	@Override
 	public boolean insert(Produto produto) {
-		String sql = "INSERT INTO tb_produto(codigo, descricao, preco) "
+		String sql = "INSERT INTO produto(codigo, descricao, preco) "
 				+ "VALUES('"+ produto.getCodigo() +"',"
 						+ "'"+ produto.getDescricao() +"',"
 						+ produto.getPreco() +");";
@@ -55,7 +55,7 @@ public class PersistenceProduto implements IPersistenceProduto {
 	public boolean delete(Produto produto) {
 		String sql;
 		
-		sql = "DELETE FROM tb_produto WHERE codigo = "+ produto.getCodigo() + ";";
+		sql = "DELETE FROM produto WHERE codigo = "+ produto.getCodigo() + ";";
 		
 		try {
 			con.getConnection().createStatement().executeUpdate(sql);
@@ -71,7 +71,7 @@ public class PersistenceProduto implements IPersistenceProduto {
 	@Override
 	public boolean update(Produto produto) {
 		
-		String sql = "UPDATE tb_produto SET descricao = '"+produto.getDescricao()+"',"
+		String sql = "UPDATE produto SET descricao = '"+produto.getDescricao()+"',"
 				+ " preco = '"+produto.getPreco()+"' "
 																				
 				+ " WHERE codigo = "+produto.getCodigo()+";";
@@ -106,7 +106,7 @@ public class PersistenceProduto implements IPersistenceProduto {
 	public Produto selectProduto(String descricao) {
 		
 		Produto produto = new Produto();
-		String sql = "SELECT * FROM tb_produto WHERE descricao='" + descricao + "';";
+		String sql = "SELECT * FROM produto WHERE descricao='" + descricao + "';";
 		
 		try {
 			stmt = (Statement) con.getConnection().prepareStatement(sql);
@@ -151,7 +151,7 @@ public class PersistenceProduto implements IPersistenceProduto {
 		
 		try {
 			stmt = (Statement) con.getConnection().createStatement();
-			String sql = "SELECT * FROM tb_produto;";
+			String sql = "SELECT * FROM produto;";
 			rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
