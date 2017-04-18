@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import com.mysql.jdbc.Statement;
 
 import br.com.gfsoft.smartgondula.model.Produto;
-import br.com.gfsoft.smartgondula.model.Usuario;
 
 public class PersistenceProduto implements IPersistenceProduto {
 	
