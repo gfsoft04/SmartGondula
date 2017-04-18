@@ -24,7 +24,6 @@ import br.com.gfsoft.smartgondula.model.TabelaConsulta;
 import br.com.gfsoft.smartgondula.model.Usuario;
 
 public class ConsultaUsuario extends JInternalFrame {
-
 	/**
 	 * 
 	 */

@@ -14,6 +14,11 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.SoftBevelBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Principal extends JFrame {
 	
@@ -75,6 +80,84 @@ public class Principal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1376, 720);
 		setExtendedState(MAXIMIZED_BOTH);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("Arquivo");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmCadUsuario = new JMenuItem("Cadastrar de Usu\u00E1rio");
+		mntmCadUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//USUARIO.alternaBotoes(false);
+				//USUARIO.setEditable(true);
+				USUARIO.setVisible(true);
+				USUARIO.setTitle("Cadastro de Usuário");
+				desktopPane.moveToFront(USUARIO);
+				
+			}
+		});
+		mnNewMenu.add(mntmCadUsuario);
+		
+		JMenuItem mntmCadProduto = new JMenuItem("Cadastro de Produto");
+		mntmCadProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PRODUTO.setVisible(true);
+				PRODUTO.setTitle("Cadastro de Produto");
+				desktopPane.moveToFront(PRODUTO);
+			}
+		});
+		mnNewMenu.add(mntmCadProduto);
+		
+		JMenuItem mntmCadLcd = new JMenuItem("Cadastro de LCD");
+		mntmCadLcd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LCD.setVisible(true);
+				LCD.setTitle("Cadastro de LCD");
+				desktopPane.moveToFront(LCD);
+			}
+		});
+		mnNewMenu.add(mntmCadLcd);
+		
+		JMenu mnNewMenu_1 = new JMenu("Consulta");
+		menuBar.add(mnNewMenu_1);
+		
+		JMenuItem mntmConsultaUsuario = new JMenuItem("Usu\u00E1rio");
+		mntmConsultaUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CONSULTAUSUARIO.setVisible(true);
+				CONSULTAUSUARIO.setTitle("Cadastro de Usuário");
+				desktopPane.moveToFront(CONSULTAUSUARIO);
+			}
+		});
+		mnNewMenu_1.add(mntmConsultaUsuario);
+		
+		JMenuItem mntmConsultaProduto = new JMenuItem("Produto");
+		mntmConsultaProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CONSULTAPRODUTO.setVisible(true);
+				CONSULTAPRODUTO.setTitle("Cadastro de Produto");
+				desktopPane.moveToFront(CONSULTAPRODUTO);
+			}
+		});
+		mnNewMenu_1.add(mntmConsultaProduto);
+		
+		JMenuItem mntmConsultaLcd = new JMenuItem("LCD");
+		mntmConsultaLcd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CONSULTALCD.setVisible(true);
+				CONSULTALCD.setTitle("Cadastro de LCD");
+				desktopPane.moveToFront(CONSULTALCD);
+			}
+		});
+		mnNewMenu_1.add(mntmConsultaLcd);
+		
+		JMenu mnNewMenu_2 = new JMenu("Ajuda");
+		menuBar.add(mnNewMenu_2);
+		
+		JMenuItem mntmAjuda = new JMenuItem("Sobre");
+		mnNewMenu_2.add(mntmAjuda);
 		//setIconImage(new ImageIcon("icon\\sisAcademic64.png").getImage());
 		
 		JPanel contentPane = new JPanel();
@@ -133,5 +216,4 @@ public class Principal extends JFrame {
 		// =======================================================
 
 	}
-	
 }

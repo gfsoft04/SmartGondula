@@ -20,7 +20,6 @@ import javax.swing.border.TitledBorder;
 import br.com.gfsoft.smartgondula.model.Usuario;
 
 public class CadUsuario extends JInternalFrame {
-
 	/**
 	 * 
 	 */
@@ -109,7 +108,7 @@ public class CadUsuario extends JInternalFrame {
 			}
 		});
 		
-		/** BOTAO CADASTRAR **/
+		/** BOTAO CANCELAR **/
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(266, 302, 125, 45);
 		panel.add(btnCancelar);
