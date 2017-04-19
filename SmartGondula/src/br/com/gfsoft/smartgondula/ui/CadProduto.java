@@ -19,6 +19,7 @@ import javax.swing.border.TitledBorder;
 
 import br.com.gfsoft.smartgondula.controller.SmartGondula;
 import br.com.gfsoft.smartgondula.model.Produto;
+import br.com.gfsoft.smartgondula.util.QrCode;
 
 public class CadProduto extends JInternalFrame {
 	/**
@@ -147,6 +148,10 @@ public class CadProduto extends JInternalFrame {
 				produto.setPreco(Float.parseFloat(txtValor.getText()));
 				
 				if(smartGondula.cadastrarProduto(produto)){
+					// GERACAO DO QRCODE
+					QrCode qrCod = new QrCode();
+					qrCod.gerarQrCode(produto.getCodigo()+"", produto.getDescricao() + ";" + produto.getPreco());
+					
 					JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!", "Cadastrado", JOptionPane.INFORMATION_MESSAGE);
 					limparCampos();
 					Principal.CONSULTAPRODUTO.preencherTabela();
@@ -207,6 +212,10 @@ public class CadProduto extends JInternalFrame {
 				produto.setPreco(Float.parseFloat(txtValor.getText()));
 				
 				if(smartGondula.atualizarProduto(produto)){
+					// GERACAO DO QRCODE
+					QrCode qrCod = new QrCode();
+					qrCod.gerarQrCode(produto.getCodigo()+"", produto.getDescricao() + ";" + produto.getPreco());
+					
 					JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso!", "Atencao", JOptionPane.INFORMATION_MESSAGE);
 					limparCampos();
 					Principal.CONSULTAPRODUTO.preencherTabela();

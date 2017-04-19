@@ -14,17 +14,16 @@ import javax.swing.JOptionPane;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
-import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.ByteMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 public class QrCode {
 
-	private static final String nomeQrCodeGerado = "qrcodeimage";
+	private String nomeQrCodeGerado;
 	private static final String formatoQrCodeGerado = "png";
 
-	public void gerarQrCode(String texto) {
+	public void gerarQrCode(String nomeImg, String texto) {
 		if (texto == null || texto.isEmpty()) {
 			JOptionPane.showMessageDialog(null, "O texto a ser codificado é obrigatório", "Erro",
 					JOptionPane.ERROR_MESSAGE);
@@ -33,13 +32,14 @@ public class QrCode {
 			chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 				String path = chooser.getSelectedFile().getAbsolutePath();
-				gerarComZXing(path, texto);
+				gerarComZXing(nomeImg, path, texto);
 			}
 		}
 	}
 
-	private void gerarComZXing(String path, String texto) {
+	private void gerarComZXing(String nomeImg, String path, String texto) {
 		try {
+			nomeQrCodeGerado = nomeImg;
 
 			File myFile = new File(path + "/" + nomeQrCodeGerado + "." + formatoQrCodeGerado);
 			Hashtable<EncodeHintType, ErrorCorrectionLevel> hintMap = new Hashtable<EncodeHintType, ErrorCorrectionLevel>();
@@ -48,7 +48,7 @@ public class QrCode {
 			
 			//Alterado
 			//BitMatrix byteMatrix = qrCodeWriter.encode(texto, BarcodeFormat.QR_CODE, 100, 100, hintMap);
-			ByteMatrix byteMatrix = qrCodeWriter.encode(texto, BarcodeFormat.QR_CODE, 100, 100, hintMap);
+			ByteMatrix byteMatrix = qrCodeWriter.encode(texto, BarcodeFormat.QR_CODE, 500, 500, hintMap);
 			
 			int CrunchifyWidth = byteMatrix.getWidth();
 			BufferedImage image = new BufferedImage(CrunchifyWidth, CrunchifyWidth, BufferedImage.TYPE_INT_RGB);
@@ -69,7 +69,7 @@ public class QrCode {
 				}
 			}
 			ImageIO.write(image, formatoQrCodeGerado, myFile);
-			JOptionPane.showMessageDialog(null, "QRCode gerado em: " + myFile.getAbsolutePath(), "Erro", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "QRCode gerado em: " + myFile.getAbsolutePath(), "QRCode Gerado", JOptionPane.INFORMATION_MESSAGE);
 		} catch (WriterException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
