@@ -205,7 +205,7 @@ public class CadProduto extends JInternalFrame {
 				produto.setDescricao(txtDescricao.getText());
 				produto.setPreco(Float.parseFloat(txtValor.getText()));
 				
-				if(smartGondula.cadastrarProduto(produto)){
+				if(smartGondula.atualizarProduto(produto)){
 					JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso!", "Atencao", JOptionPane.INFORMATION_MESSAGE);
 					limparCampos();
 					Principal.CONSULTAPRODUTO.preencherTabela();
