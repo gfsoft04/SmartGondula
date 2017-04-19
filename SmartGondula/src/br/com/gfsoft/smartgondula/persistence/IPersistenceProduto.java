@@ -11,5 +11,6 @@ public interface IPersistenceProduto {
 	public boolean update(Produto produto);
 	public Produto selectProduto(String descricao);
 	public Set<Produto> selectProdutos();
+	Set<Produto> filtroProdutos(String descricao);
 	
 }

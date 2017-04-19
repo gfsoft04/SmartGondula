@@ -190,5 +190,52 @@ public class PersistenceLcd implements IPersistenceLcd {
 		
 		return null;
 	}
+	
+	@Override
+	public Set<Lcd> filtrarLcds(int codigo) {
+		Set<Lcd> lcds = new HashSet<>();
+		Lcd lcd;
+		
+		try {
+			stmt = (Statement) con.getConnection().createStatement();
+			String sql = "SELECT * FROM lcd WHERE codigo LIKE " + codigo + "%;";
+			rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				lcd = new Lcd();
+				
+				lcd.setCodigo(rs.getInt("codigo"));
+				lcd.setRua(rs.getString("rua"));
+				lcd.setNumero(rs.getInt("numero"));
+				lcd.setCod_produto(rs.getInt("codProduto"));
+				
+				lcds.add(lcd);
+			}
+			
+			return lcds;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro na busca dos produtos na base!", "Erro", JOptionPane.ERROR_MESSAGE);
+		} finally {
+			try {
+//				if(con != null)
+//					con.getConnection().close();
+				
+				if(stmt != null)
+					stmt.close();
+				
+				if(rs != null)
+					rs.close();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return null;
+	}
 
 }

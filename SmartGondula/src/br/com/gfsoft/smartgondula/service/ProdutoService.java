@@ -36,4 +36,8 @@ public class ProdutoService extends Service{
 		return persistencia.selectProdutos();
 	}
 	
+	public Set<Produto> filtrar(String descricao){
+		return persistencia.filtroProdutos(descricao);
+	}
+	
 }

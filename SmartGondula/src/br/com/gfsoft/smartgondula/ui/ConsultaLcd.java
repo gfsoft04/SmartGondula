@@ -163,7 +163,7 @@ public class ConsultaLcd extends JInternalFrame {
         String[] colunas = new String[]{"Código","Rua","Número","Código do Produto"};
         smartGondula = new SmartGondula();
         
-        lcds.add(smartGondula.buscarLcd(codigo));
+        lcds.addAll(smartGondula.filtrarLcd(codigo));
         
         for(Lcd a : lcds){
         	dados.add(new Object[]{a.getCodigo(), a.getRua(), a.getNumero(), a.getCod_produto()});

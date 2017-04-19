@@ -37,7 +37,6 @@ public class CadLcd extends JInternalFrame {
 	private JButton btnDeletar;
 	private JButton btnBuscaProduto;
 	private JComboBox comboBoxRua;
-	private JPanel panel_3;
 	
 	private Lcd lcd;
 	private SmartGondula smartGondula;
@@ -183,6 +182,7 @@ public class CadLcd extends JInternalFrame {
 				if(smartGondula.cadastrarLcd(lcd)){
 					JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!", "Cadastrado", JOptionPane.INFORMATION_MESSAGE);
 					limparCampos();
+					Principal.CONSULTAPRODUTO.preencherTabela();
 				}
 			
 			}

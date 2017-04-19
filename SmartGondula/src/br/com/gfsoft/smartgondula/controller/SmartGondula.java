@@ -65,6 +65,10 @@ public class SmartGondula {
 		return produtoService.listar();
 	}
 	
+	public Set<Produto> filtrarProdutos(String descricao){
+		return produtoService.filtrar(descricao);
+	}
+	
 	//-------------Metodos do LCD------------------------
 	
 	public boolean cadastrarLcd(Lcd lcd){
@@ -85,6 +89,10 @@ public class SmartGondula {
 	
 	public Set<Lcd> listarLcd(){
 		return lcdService.listar();
+	}
+	
+	public Set<Lcd> filtrarLcd(int codigo){
+		return lcdService.filtrar(codigo);
 	}
 
 }

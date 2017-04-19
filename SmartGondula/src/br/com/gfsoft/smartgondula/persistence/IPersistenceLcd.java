@@ -11,5 +11,6 @@ public interface IPersistenceLcd {
 	public boolean update(Lcd lcd);
 	public Lcd selectLcd(int codigo);
 	public Set<Lcd> selectLcds();
+	Set<Lcd> filtrarLcds(int codigo);
 
 }

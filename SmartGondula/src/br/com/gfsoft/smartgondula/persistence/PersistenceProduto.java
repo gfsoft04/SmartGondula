@@ -189,5 +189,53 @@ public class PersistenceProduto implements IPersistenceProduto {
 		
 		return null;
 	}
+//	String sql = "SELECT * FROM tb_Aluno INNER JOIN tb_Pessoa ON tb_Aluno.tb_Pessoa_idPessoa = tb_Pessoa.idPessoa "
+//			+ "WHERE nome LIKE '" + nome + "%'";
+	@Override
+	public Set<Produto> filtroProdutos(String descricao) {
+		
+		Set<Produto> produtos = new HashSet<>();
+		Produto produto;
+		
+		try {
+			stmt = (Statement) con.getConnection().createStatement();
+			String sql = "SELECT * FROM produto WHERE descricao LIKE '" + descricao + "%';";
+			rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				produto = new Produto();
+				
+				produto.setCodigo(rs.getInt("codigo"));
+				produto.setDescricao(rs.getString("descricao"));
+				produto.setPreco(rs.getFloat("preco"));
+				
+				produtos.add(produto);
+			}
+			
+			return produtos;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro na busca dos produtos na base!", "Erro", JOptionPane.ERROR_MESSAGE);
+		} finally {
+			try {
+//				if(con != null)
+//					con.getConnection().close();
+				
+				if(stmt != null)
+					stmt.close();
+				
+				if(rs != null)
+					rs.close();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return null;
+	}
 
 }

@@ -35,5 +35,9 @@ public class LcdService extends Service{
 	public Set<Lcd> listar(){
 		return persistencia.selectLcds();
 	}
+	
+	public Set<Lcd> filtrar(int codigo){
+		return persistencia.filtrarLcds(codigo);
+	}
 
 }

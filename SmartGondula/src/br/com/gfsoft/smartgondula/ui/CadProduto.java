@@ -149,6 +149,7 @@ public class CadProduto extends JInternalFrame {
 				if(smartGondula.cadastrarProduto(produto)){
 					JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!", "Cadastrado", JOptionPane.INFORMATION_MESSAGE);
 					limparCampos();
+					Principal.CONSULTAPRODUTO.preencherTabela();
 				}
 			
 			}

@@ -88,17 +88,12 @@ public class ConsultaProduto extends JInternalFrame {
 					smartGondula = new SmartGondula();
 					produto = new Produto();
 					
-					//try {
-						produto = smartGondula.buscarProduto(descricao);
-						
-						Principal.PRODUTO.preencheCampos(produto);
-						Principal.PRODUTO.setVisible(true);
-						Principal.PRODUTO.alternaBotoes(true);
-						Principal.PRODUTO.setTitle("Editar");
-//					} catch (UsuarioNaoEncontradoException ex) {
-//						// Excecao para usuario nao encontrado
-//						JOptionPane.showMessageDialog(null, "Usuario Nao Cadastrado no Sistema!", "Erro", JOptionPane.ERROR_MESSAGE);
-//					}
+					produto = smartGondula.buscarProduto(descricao);
+					
+					Principal.PRODUTO.preencheCampos(produto);
+					Principal.PRODUTO.setVisible(true);
+					Principal.PRODUTO.alternaBotoes(true);
+					Principal.PRODUTO.setTitle("Editar");
 				}
 				
 			}
@@ -159,13 +154,13 @@ public class ConsultaProduto extends JInternalFrame {
 	 * Metodo para preencher a tabela
 	 * 
 	 */
-	public void preencherTabelaFiltro(String nome){
+	public void preencherTabelaFiltro(String descricao){
         List<Object> dados = new ArrayList<>();
         List<Produto> produto = new ArrayList<>();
         String[] colunas = new String[]{"Código","Descrição","Valor"};
         smartGondula = new SmartGondula();
         
-        produto.add(smartGondula.buscarProduto(nome));
+        produto.addAll(smartGondula.filtrarProdutos(descricao));
         
         for(Produto a : produto){
         	dados.add(new Object[]{a.getCodigo(), a.getDescricao(), a.getPreco()});
