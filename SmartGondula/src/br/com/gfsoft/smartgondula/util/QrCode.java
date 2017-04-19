@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
-import com.google.zxing.common.ByteMatrix;
+import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
@@ -46,9 +46,7 @@ public class QrCode {
 			hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
 			QRCodeWriter qrCodeWriter = new QRCodeWriter();
 			
-			//Alterado
-			//BitMatrix byteMatrix = qrCodeWriter.encode(texto, BarcodeFormat.QR_CODE, 100, 100, hintMap);
-			ByteMatrix byteMatrix = qrCodeWriter.encode(texto, BarcodeFormat.QR_CODE, 500, 500, hintMap);
+			BitMatrix byteMatrix = qrCodeWriter.encode(texto, BarcodeFormat.QR_CODE, 100, 100, hintMap);
 			
 			int CrunchifyWidth = byteMatrix.getWidth();
 			BufferedImage image = new BufferedImage(CrunchifyWidth, CrunchifyWidth, BufferedImage.TYPE_INT_RGB);
@@ -61,9 +59,7 @@ public class QrCode {
 
 			for (int i = 0; i < CrunchifyWidth; i++) {
 				for (int j = 0; j < CrunchifyWidth; j++) {
-					//Alterado
-					//if (byteMatrix.get(i, j)) {
-					if (byteMatrix.get(i, j) != 0) {
+					if (byteMatrix.get(i, j)) {
 						graphics.fillRect(i, j, 1, 1);
 					}
 				}
