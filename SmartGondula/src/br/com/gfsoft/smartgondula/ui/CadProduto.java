@@ -28,7 +28,7 @@ public class CadProduto extends JInternalFrame {
 	private static final long serialVersionUID = -8453356691067985291L;
 	private JTextField txtDescricao;
 	private JTextField txtCodigo;
-	private JTextField txtValor;
+	private JTextField txtPrecoAtacado;
 	private JButton btnCadastrar;
 	private JButton btnCancelar;
 	private JButton btnDeletar;
@@ -36,6 +36,7 @@ public class CadProduto extends JInternalFrame {
 	
 	private Produto produto;
 	private SmartGondula smartGondula;
+	private JTextField txtPrecoVarejo;
 
 	/**
 	 * Launch the application.
@@ -87,8 +88,8 @@ public class CadProduto extends JInternalFrame {
 		lblCdigo.setBounds(23, 100, 70, 16);
 		panel_1.add(lblCdigo);
 		
-		JLabel lblValor = new JLabel("Valor:");
-		lblValor.setBounds(23, 147, 57, 16);
+		JLabel lblValor = new JLabel("Pre\u00E7o por Atacado:");
+		lblValor.setBounds(23, 147, 123, 16);
 		panel_1.add(lblValor);
 		
 		txtCodigo = new JTextField();
@@ -96,10 +97,19 @@ public class CadProduto extends JInternalFrame {
 		panel_1.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
-		txtValor = new JTextField();
-		txtValor.setBounds(97, 138, 130, 35);
-		panel_1.add(txtValor);
-		txtValor.setColumns(10);
+		txtPrecoAtacado = new JTextField();
+		txtPrecoAtacado.setBounds(158, 138, 130, 35);
+		panel_1.add(txtPrecoAtacado);
+		txtPrecoAtacado.setColumns(10);
+		
+		txtPrecoVarejo = new JTextField();
+		txtPrecoVarejo.setColumns(10);
+		txtPrecoVarejo.setBounds(158, 175, 130, 35);
+		panel_1.add(txtPrecoVarejo);
+		
+		JLabel lblPreoPorVarejo = new JLabel("Pre\u00E7o por Varejo:");
+		lblPreoPorVarejo.setBounds(23, 184, 123, 16);
+		panel_1.add(lblPreoPorVarejo);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
@@ -135,7 +145,7 @@ public class CadProduto extends JInternalFrame {
 			public void actionPerformed(ActionEvent e) {
 			
 				//VERIFICAR OS CAMPOS OBRIGATORIOS PREENCHIDOS
-				if(txtDescricao.getText().equals("") || txtCodigo.getText().equals("") || txtValor.getText().equals("")) {
+				if(txtDescricao.getText().equals("") || txtCodigo.getText().equals("") || txtPrecoAtacado.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Campos Obrigatorios em Branco!", "Erro", JOptionPane.ERROR_MESSAGE);
 					return ;					
 				}
@@ -145,12 +155,14 @@ public class CadProduto extends JInternalFrame {
 				
 				produto.setCodigo(Integer.parseInt(txtCodigo.getText()));
 				produto.setDescricao(txtDescricao.getText());
-				produto.setPreco(Float.parseFloat(txtValor.getText()));
+				produto.setPrecoAtacado(Float.parseFloat(txtPrecoAtacado.getText()));
+				produto.setPrecoVarejo(Float.parseFloat(txtPrecoVarejo.getText()));
 				
 				if(smartGondula.cadastrarProduto(produto)){
 					// GERACAO DO QRCODE
 					QrCode qrCod = new QrCode();
-					qrCod.gerarQrCode(produto.getCodigo()+"", produto.getDescricao() + ";" + produto.getPreco());
+					//*********************** FALTA ACRESCENTAR O VALOR POR ATACADO **********************************
+					qrCod.gerarQrCode(produto.getCodigo()+"", produto.getDescricao() + ";" + produto.getPrecoVarejo());
 					
 					JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!", "Cadastrado", JOptionPane.INFORMATION_MESSAGE);
 					limparCampos();
@@ -199,7 +211,7 @@ public class CadProduto extends JInternalFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				//VERIFICAR OS CAMPOS OBRIGATORIOS PREENCHIDOS
-				if(txtDescricao.getText().equals("") || txtCodigo.getText().equals("") || txtValor.getText().equals("")) {
+				if(txtDescricao.getText().equals("") || txtCodigo.getText().equals("") || txtPrecoAtacado.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Campos Obrigatorios em Branco!", "Erro", JOptionPane.ERROR_MESSAGE);
 					return ;					
 				}
@@ -209,12 +221,14 @@ public class CadProduto extends JInternalFrame {
 				
 				produto.setCodigo(Integer.parseInt(txtCodigo.getText()));
 				produto.setDescricao(txtDescricao.getText());
-				produto.setPreco(Float.parseFloat(txtValor.getText()));
+				produto.setPrecoAtacado(Float.parseFloat(txtPrecoAtacado.getText()));
+				produto.setPrecoVarejo(Float.parseFloat(txtPrecoVarejo.getText()));
 				
 				if(smartGondula.atualizarProduto(produto)){
 					// GERACAO DO QRCODE
 					QrCode qrCod = new QrCode();
-					qrCod.gerarQrCode(produto.getCodigo()+"", produto.getDescricao() + ";" + produto.getPreco());
+					//*********************** FALTA ACRESCENTAR O VALOR POR ATACADO **********************************
+					qrCod.gerarQrCode(produto.getCodigo()+"", produto.getDescricao() + ";" + produto.getPrecoVarejo());
 					
 					JOptionPane.showMessageDialog(null, "Cadastro alterado com sucesso!", "Atencao", JOptionPane.INFORMATION_MESSAGE);
 					limparCampos();
@@ -253,6 +267,6 @@ public class CadProduto extends JInternalFrame {
 	public void limparCampos(){
 		txtDescricao.setText("");
 		txtCodigo.setText("");
-		txtValor.setText("");
+		txtPrecoAtacado.setText("");
 	}
 }

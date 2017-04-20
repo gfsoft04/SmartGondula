@@ -124,13 +124,13 @@ public class ConsultaProduto extends JInternalFrame {
 	public void preencherTabela(){
         List<Object> dados = new ArrayList<>();
         List<Produto> produto = new ArrayList<>();
-        String[] colunas = new String[]{"Código","Descrição","Valor"};
+        String[] colunas = new String[]{"Código","Descrição","Preço de Atacado", "Preço de Varejo"};
         smartGondula = new SmartGondula();
         
         produto.addAll(smartGondula.listarProdutos());
         
         for(Produto a : produto){
-        	dados.add(new Object[]{a.getCodigo(), a.getDescricao(), a.getPreco()});
+        	dados.add(new Object[]{a.getCodigo(), a.getDescricao(), a.getPrecoAtacado(), a.getPrecoVarejo()});
         }
         
         TabelaConsulta modelo = new TabelaConsulta(dados, colunas);
@@ -142,6 +142,8 @@ public class ConsultaProduto extends JInternalFrame {
         table.getColumnModel().getColumn(1).setResizable(true);
         table.getColumnModel().getColumn(2).setPreferredWidth(80);
         table.getColumnModel().getColumn(2).setResizable(true);
+        table.getColumnModel().getColumn(3).setPreferredWidth(80);
+        table.getColumnModel().getColumn(3).setResizable(true);
         
         table.getTableHeader().setReorderingAllowed(true);
         //jTableConsulta.getAutoResizeMode(jTableConsulta.AUTO_RESIZE_OFF);
@@ -157,13 +159,13 @@ public class ConsultaProduto extends JInternalFrame {
 	public void preencherTabelaFiltro(String descricao){
         List<Object> dados = new ArrayList<>();
         List<Produto> produto = new ArrayList<>();
-        String[] colunas = new String[]{"Código","Descrição","Valor"};
+        String[] colunas = new String[]{"Código","Descrição","Preço de Atacado", "Preço de Varejo"};
         smartGondula = new SmartGondula();
         
         produto.addAll(smartGondula.filtrarProdutos(descricao));
         
         for(Produto a : produto){
-        	dados.add(new Object[]{a.getCodigo(), a.getDescricao(), a.getPreco()});
+        	dados.add(new Object[]{a.getCodigo(), a.getDescricao(), a.getPrecoAtacado(), a.getPrecoVarejo()});
         }
         
         TabelaConsulta modelo = new TabelaConsulta(dados, colunas);
@@ -175,6 +177,8 @@ public class ConsultaProduto extends JInternalFrame {
         table.getColumnModel().getColumn(1).setResizable(true);
         table.getColumnModel().getColumn(2).setPreferredWidth(80);
         table.getColumnModel().getColumn(2).setResizable(true);
+        table.getColumnModel().getColumn(3).setPreferredWidth(80);
+        table.getColumnModel().getColumn(3).setResizable(true);
         
         table.getTableHeader().setReorderingAllowed(true);
         //jTableConsulta.getAutoResizeMode(jTableConsulta.AUTO_RESIZE_OFF);

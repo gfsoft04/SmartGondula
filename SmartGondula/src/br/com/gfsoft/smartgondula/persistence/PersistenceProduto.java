@@ -19,10 +19,11 @@ public class PersistenceProduto implements IPersistenceProduto {
 
 	@Override
 	public boolean insert(Produto produto) {
-		String sql = "INSERT INTO produto(codigo, descricao, preco) "
+		String sql = "INSERT INTO produto(codigo, descricao, precoAtacado, precoVarejo) "
 				+ "VALUES('"+ produto.getCodigo() +"',"
 						+ "'"+ produto.getDescricao() +"',"
-						+ produto.getPreco() +");";
+						+ produto.getPrecoAtacado() +"),"
+						+ produto.getPrecoVarejo() +");";
 		
 		try {
 			con.getConnection().createStatement().executeUpdate(sql);
@@ -72,7 +73,8 @@ public class PersistenceProduto implements IPersistenceProduto {
 	public boolean update(Produto produto) {
 		
 		String sql = "UPDATE produto SET descricao = '"+produto.getDescricao()+"',"
-				+ " preco = '"+produto.getPreco()+"' "
+				+ " precoAtacado = "+produto.getPrecoAtacado()+", "
+				+ " precoVarejo = "+produto.getPrecoVarejo()
 																				
 				+ " WHERE codigo = "+produto.getCodigo()+";";
 		
@@ -115,7 +117,8 @@ public class PersistenceProduto implements IPersistenceProduto {
 			while (rs.next()) {
 				produto.setCodigo(rs.getInt("codigo"));
 				produto.setDescricao(rs.getString("descricao"));
-				produto.setPreco(rs.getFloat("preco"));
+				produto.setPrecoAtacado(rs.getFloat("precoAtacado"));
+				produto.setPrecoVarejo(rs.getFloat("precoVarejo"));
 			}
 			
 			return produto;
@@ -159,7 +162,8 @@ public class PersistenceProduto implements IPersistenceProduto {
 				
 				produto.setCodigo(rs.getInt("codigo"));
 				produto.setDescricao(rs.getString("descricao"));
-				produto.setPreco(rs.getFloat("preco"));
+				produto.setPrecoAtacado(rs.getFloat("precoAtacado"));
+				produto.setPrecoVarejo(rs.getFloat("precoVarejo"));
 				
 				produtos.add(produto);
 			}
@@ -207,7 +211,8 @@ public class PersistenceProduto implements IPersistenceProduto {
 				
 				produto.setCodigo(rs.getInt("codigo"));
 				produto.setDescricao(rs.getString("descricao"));
-				produto.setPreco(rs.getFloat("preco"));
+				produto.setPrecoAtacado(rs.getFloat("precoAtacado"));
+				produto.setPrecoVarejo(rs.getFloat("precoVarejo"));
 				
 				produtos.add(produto);
 			}

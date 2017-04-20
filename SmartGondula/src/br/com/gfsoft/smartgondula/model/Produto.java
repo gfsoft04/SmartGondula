@@ -3,7 +3,8 @@ package br.com.gfsoft.smartgondula.model;
 public class Produto {
 	private int codigo;
 	private String descricao;
-	private float preco;
+	private float precoVarejo;
+	private float precoAtacado;
 		
 	
 	/**
@@ -25,12 +26,22 @@ public class Produto {
 		this.descricao = descricao;
 	}
 	
-	public float getPreco() {
-		return preco;
+	public float getPrecoVarejo() {
+		return precoVarejo;
+	}
+
+	public void setPrecoVarejo(float precoVarejo) {
+		this.precoVarejo = precoVarejo;
+	}
+
+	public float getPrecoAtacado() {
+		return precoAtacado;
+	}
+
+	public void setPrecoAtacado(float precoAtacado) {
+		this.precoAtacado = precoAtacado;
 	}
 	
-	public void setPreco(float preco) {
-		this.preco = preco;
-	}
+	
 	
 }
