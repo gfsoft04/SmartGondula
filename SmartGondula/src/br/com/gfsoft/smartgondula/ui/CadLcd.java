@@ -21,6 +21,7 @@ import javax.swing.border.TitledBorder;
 
 import br.com.gfsoft.smartgondula.controller.SmartGondula;
 import br.com.gfsoft.smartgondula.model.Lcd;
+import javax.swing.ImageIcon;
 
 public class CadLcd extends JInternalFrame {
 
@@ -140,6 +141,7 @@ public class CadLcd extends JInternalFrame {
 		
 		/** BOTAO CANCELAR **/
 		btnCancelar = new JButton("Cancelar");
+		btnCancelar.setIcon(new ImageIcon(CadLcd.class.getResource("/icon/cancel.png")));
 		btnCancelar.setBounds(199, 18, 125, 45);
 		panel_3.add(btnCancelar);
 		//btnCadastrar.setIcon(new ImageIcon(CadProduto.class.getResource("/icon/cancelar.png")));
@@ -156,6 +158,7 @@ public class CadLcd extends JInternalFrame {
 		
 		/** BOTAO CADASTRAR **/
 		btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setIcon(new ImageIcon(CadLcd.class.getResource("/icon/cadastrar.png")));
 		btnCadastrar.setBounds(376, 18, 125, 45);
 		panel_3.add(btnCadastrar);
 		//btnCadastrar.setIcon(new ImageIcon(CadProduto.class.getResource("/icon/cadastrar.png")));
@@ -182,7 +185,7 @@ public class CadLcd extends JInternalFrame {
 				if(smartGondula.cadastrarLcd(lcd)){
 					JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!", "Cadastrado", JOptionPane.INFORMATION_MESSAGE);
 					limparCampos();
-					Principal.CONSULTAPRODUTO.preencherTabela();
+					Principal.CONSULTALCD.preencherTabela();
 				}
 			
 			}
@@ -190,6 +193,7 @@ public class CadLcd extends JInternalFrame {
 				
 		/** BOTAO DELETAR **/
 		btnDeletar = new JButton("Deletar");
+		btnDeletar.setIcon(new ImageIcon(CadLcd.class.getResource("/icon/del.png")));
 		//btnDeletar.setIcon(new ImageIcon(CadAluno.class.getResource("/icon/del.png")));
 		btnDeletar.setHorizontalAlignment(SwingConstants.LEFT);
 		btnDeletar.setBounds(30, 18, 125, 45);
@@ -218,7 +222,7 @@ public class CadLcd extends JInternalFrame {
 		
 		/** BOTAO ALTERAR **/
 		btnAlterar = new JButton("Alterar");
-		//btnAlterar.setIcon(new ImageIcon(CadAluno.class.getResource("/icon/cadastrar.png")));
+		btnAlterar.setIcon(new ImageIcon(CadLcd.class.getResource("/icon/cadastrar.png")));
 		btnAlterar.setHorizontalAlignment(SwingConstants.LEFT);
 		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnAlterar.setBounds(376, 18, 125, 45);

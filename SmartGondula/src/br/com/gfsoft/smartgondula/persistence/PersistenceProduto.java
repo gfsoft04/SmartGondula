@@ -20,9 +20,9 @@ public class PersistenceProduto implements IPersistenceProduto {
 	@Override
 	public boolean insert(Produto produto) {
 		String sql = "INSERT INTO produto(codigo, descricao, precoAtacado, precoVarejo) "
-				+ "VALUES('"+ produto.getCodigo() +"',"
+				+ "VALUES("+ produto.getCodigo() +","
 						+ "'"+ produto.getDescricao() +"',"
-						+ produto.getPrecoAtacado() +"),"
+						+ produto.getPrecoAtacado() +","
 						+ produto.getPrecoVarejo() +");";
 		
 		try {

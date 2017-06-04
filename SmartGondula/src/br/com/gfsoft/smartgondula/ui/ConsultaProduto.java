@@ -108,7 +108,7 @@ public class ConsultaProduto extends JInternalFrame {
 				preencherTabelaFiltro(descricao);
 			}
 		});
-		btnFiltrar.setBounds(510, 27, 100, 30);
+		btnFiltrar.setBounds(511, 24, 100, 36);
 		panel.add(btnFiltrar);
 		
 		

@@ -113,7 +113,7 @@ public class ConsultaUsuario extends JInternalFrame {
 				preencherTabelaFiltro(nome);
 			}
 		});
-		btnFiltrar.setBounds(510, 27, 100, 30);
+		btnFiltrar.setBounds(510, 24, 100, 36);
 		panel.add(btnFiltrar);
 		
 		

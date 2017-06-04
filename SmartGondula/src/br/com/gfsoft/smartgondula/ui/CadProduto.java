@@ -20,6 +20,7 @@ import javax.swing.border.TitledBorder;
 import br.com.gfsoft.smartgondula.controller.SmartGondula;
 import br.com.gfsoft.smartgondula.model.Produto;
 import br.com.gfsoft.smartgondula.util.QrCode;
+import javax.swing.ImageIcon;
 
 public class CadProduto extends JInternalFrame {
 	/**
@@ -119,6 +120,7 @@ public class CadProduto extends JInternalFrame {
 		
 		/** BOTAO CANCELAR **/
 		btnCancelar = new JButton("Cancelar");
+		btnCancelar.setIcon(new ImageIcon(CadProduto.class.getResource("/icon/cancel.png")));
 		btnCancelar.setBounds(199, 18, 125, 45);
 		panel_2.add(btnCancelar);
 		//btnCadastrar.setIcon(new ImageIcon(CadProduto.class.getResource("/icon/cancelar.png")));
@@ -135,6 +137,7 @@ public class CadProduto extends JInternalFrame {
 		
 		/** BOTAO CADASTRAR **/
 		btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setIcon(new ImageIcon(CadProduto.class.getResource("/icon/cadastrar.png")));
 		btnCadastrar.setBounds(376, 18, 125, 45);
 		panel_2.add(btnCadastrar);
 		//btnCadastrar.setIcon(new ImageIcon(CadProduto.class.getResource("/icon/cadastrar.png")));
@@ -174,7 +177,7 @@ public class CadProduto extends JInternalFrame {
 				
 		/** BOTAO DELETAR **/
 		btnDeletar = new JButton("Deletar");
-		//btnDeletar.setIcon(new ImageIcon(CadAluno.class.getResource("/icon/del.png")));
+		btnDeletar.setIcon(new ImageIcon(CadProduto.class.getResource("/icon/del.png")));
 		btnDeletar.setHorizontalAlignment(SwingConstants.LEFT);
 		btnDeletar.setBounds(30, 18, 125, 45);
 		btnDeletar.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -202,7 +205,7 @@ public class CadProduto extends JInternalFrame {
 		
 		/** BOTAO ALTERAR **/
 		btnAlterar = new JButton("Alterar");
-		//btnAlterar.setIcon(new ImageIcon(CadAluno.class.getResource("/icon/cadastrar.png")));
+		btnAlterar.setIcon(new ImageIcon(CadProduto.class.getResource("/icon/cadastrar.png")));
 		btnAlterar.setHorizontalAlignment(SwingConstants.LEFT);
 		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnAlterar.setBounds(376, 18, 125, 45);
@@ -258,6 +261,8 @@ public class CadProduto extends JInternalFrame {
 			
 		txtDescricao.setText(produto.getDescricao());
 		txtCodigo.setText(produto.getCodigo()+"");
+		txtPrecoAtacado.setText(produto.getPrecoAtacado()+"");
+		txtPrecoVarejo.setText(produto.getPrecoVarejo()+"");
 		
 	}
 	
@@ -268,5 +273,6 @@ public class CadProduto extends JInternalFrame {
 		txtDescricao.setText("");
 		txtCodigo.setText("");
 		txtPrecoAtacado.setText("");
+		txtPrecoVarejo.setText("");
 	}
 }

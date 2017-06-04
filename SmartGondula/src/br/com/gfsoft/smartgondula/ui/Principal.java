@@ -76,7 +76,7 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal() {
-		setTitle("SmartGondula");
+		setTitle("Easy Price");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1376, 720);
 		setExtendedState(MAXIMIZED_BOTH);

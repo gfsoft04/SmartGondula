@@ -22,6 +22,7 @@ import javax.swing.ListSelectionModel;
 import br.com.gfsoft.smartgondula.controller.SmartGondula;
 import br.com.gfsoft.smartgondula.model.Lcd;
 import br.com.gfsoft.smartgondula.model.TabelaConsulta;
+import javax.swing.ImageIcon;
 
 public class ConsultaLcd extends JInternalFrame {
 
@@ -103,13 +104,14 @@ public class ConsultaLcd extends JInternalFrame {
 		
 		/* BOTAO FILTRAR */
 		btnFiltrar = new JButton("Filtrar");
+		btnFiltrar.setIcon(null);
 		btnFiltrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int codigo = Integer.parseInt(txtCodigo.getText());
 				preencherTabelaFiltro(codigo);
 			}
 		});
-		btnFiltrar.setBounds(510, 27, 100, 30);
+		btnFiltrar.setBounds(508, 24, 100, 36);
 		panel.add(btnFiltrar);
 		
 		
